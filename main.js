@@ -1,18 +1,25 @@
-var prompt = require('prompt');
+const {
+    yellow, cyan, red, green
+} = require('./pretty_print.js');
 
-//
-// Start the prompt
-//
-prompt.start();
+const prompt = require('prompt');
 
-//
-// Get two properties from the user: username and email
-//
-prompt.get(['username', 'email'], function (err, result) {
-  //
-  // Log the results.
-  //
-  console.log('Command-line input received:');
-  console.log('  username: ' + result.username);
-  console.log('  email: ' + result.email);
-});
+
+const init = () => {
+    prompt.start();
+    prompt.get(['cat', 'dog', 'bird'], function (err, inputtedValues) {
+        doTheThing(inputtedValues)
+    });
+}
+
+const doTheThing = (inputtedValues) => {
+    yellow(inputtedValues.cat)
+    cyan(inputtedValues.dog)
+    green(inputtedValues.bird)
+    red("!")
+}
+
+
+if (require.main === module) {
+    init();
+}

@@ -1,2 +1,5 @@
-# node_cli_ref
-node cli ref
+# A simple CLI
+A simple CLI
+
+# Image 
+![cli](cli.png)
